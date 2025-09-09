@@ -15,51 +15,51 @@ For each word, the reducer takes all the numbers that come from the mapper. It a
 
 ## o Execution Steps
 
-### 1. Start Hadoop 
+### a. Start Hadoop 
 
 ```bash
 docker compose up -d
 ```
 
-### 2. Build project
+### b. Build project
 
 ```bash
 mvn clean package
 ```
 
-### 3. Copy JAR to container
+### c. Copy JAR to container
 
 ```bash
 docker cp target/WordCountUsingHadoop-0.0.1-SNAPSHOT.jar resourcemanager:/opt/hadoop-3.2.1/share/hadoop/mapreduce/
 ```
 
-### 4. Copy dataset to container
+### d. Copy dataset to container
 
 ```bash
 docker cp shared-folder/input/data/input.txt resourcemanager:/opt/hadoop-3.2.1/share/hadoop/mapreduce/
 ```
 
-### 5. Connect to ResourceManager container
+### e. Connect to ResourceManager container
 
 ```bash
 docker exec -it resourcemanager /bin/bash
 cd /opt/hadoop-3.2.1/share/hadoop/mapreduce/
 ```
 
-### 6. Upload dataset to HDFS
+### f. Upload dataset to HDFS
 
 ```bash
 hadoop fs -mkdir -p /input/data
 hadoop fs -put -f ./input.txt /input/data
 ```
 
-### 7. Run MapReduce job
+### g. Run MapReduce job
 
 ```bash
 hadoop jar WordCountUsingHadoop-0.0.1-SNAPSHOT.jar com.example.controller.Controller /input/data/input.txt /result
 ```
 
-### 8. View output
+### h. View output
 
 ```bash
 hadoop fs -ls /result

@@ -56,7 +56,6 @@ hadoop fs -put -f ./input.txt /input/data
 ### 7. Run MapReduce job
 
 ```bash
-hadoop fs -rm -r -f /result
 hadoop jar WordCountUsingHadoop-0.0.1-SNAPSHOT.jar com.example.controller.Controller /input/data/input.txt /result
 ```
 

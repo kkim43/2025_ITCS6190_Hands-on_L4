@@ -76,7 +76,7 @@ The second problem was a build error caused by an old Java version. Maven tried 
 
 
 
-## Input and Obtained Output
+## o Input and Obtained Output
 
 ### Sample Input (`input.txt`)
 

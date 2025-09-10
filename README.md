@@ -66,6 +66,13 @@ hadoop fs -ls /result
 hadoop fs -cat /result/part-r-00000
 ```
 
+### i. Copy output to local path ( /output )
+
+```bash
+Docker$ hdfs dfs -get /result /tmp/output
+Local$ docker cp namenode:/tmp/output ./
+```
+
 
 ## o Challenges Faced & Solutions
 
